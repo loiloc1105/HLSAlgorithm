@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const minMaxNumber = (arr) => {
+    arr.sort();
+    //Ham tinh tong array
+    const sum = arr.reduce((a, b) => a + b);
+    console.log("Total in array: " + sum);
+
+    // Cac chu so chan
+    let evenNum = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 == 0) {
+        evenNum.push(parseInt(arr[i]));
+        }
+    }
+    console.log("Even elements in array: " + evenNum);
+
+    // Cac chu so le
+    let oddNum = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 == 1) {
+        oddNum.push(parseInt(arr[i]));
+        }
+    }
+    console.log("Odd elements in array: " + oddNum);
+
+    // sum-max=min , sum-min=max
+    console.log(`Min: ${sum - Math.max(...arr)}  Max: ${sum - Math.min(...arr)}`);
+
+    // Cac truong hop
+    for (let i = 0; i < arr.length; i++) {
+        let k = 0;
+        k = sum - arr[i];
+        console.log(`If we sum everything except ${i+1}, our sum is: ${k}`);
+    }
+
+
+    };
+
+    const numberArr = [1,4,3,2,5];
+    minMaxNumber(numberArr);
+
+</script>
+</html>
